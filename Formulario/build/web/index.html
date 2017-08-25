@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script>
+            function soloEnteros(e){
+                var keynum;
+                if(window.event)
+                    keynum = e.keyCode;
+                else
+                    if(e.which)
+                        keynum = e.which;
+                
+                if((keynum >= 48 && keynum <= 57) || keynum === 8)
+                    return true;
+                else
+                    return false;
+            }
+            
+            function soloCadena(e){
+                 var keychar;
+                if(window.event)
+                    keychar = e.keyCode;
+                else
+                    if(e.which)
+                        keychar = e.which;
+                
+                if((keychar >= 65 && keychar <= 90) || (keychar >= 97 && keychar <= 122) || keychar === 164 || keychar === 165 || keychar === 8 || keychar === 255 )
+                    return true;
+                else
+                    return false;
+            }
+        </script>
+    </head>
+    <body>
+        <br>
+        <div class="container">
+            <h3>
+                Actividad 3: 
+                <small class="text-muted">Formulario con jsp</small>
+            </h3>
+            <hr>
+        </div>
+        
+        <div class="container">
+            <form action="subirDatos.jsp" method="post" name="alta">
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" class="form-control" name="Nombre" placeholder="Ingresa tu nombre" onkeypress="return soloCadena(event)" required />
+                </div>
+                <div class="form-group">
+                    <label>Apellido Paterno:</label>
+                    <input type="text" class="form-control" name="ApePaterno" placeholder="Ingresa tu primer apellido" onkeypress="return soloCadena(event)" required />
+                </div>
+                <div class="form-group">
+                    <label>Apellido Materno:</label>
+                    <input type="text" class="form-control" name="ApeMaterno" placeholder="Ingresa tu segundo apellido" onkeypress="return soloCadena(event)" required />
+                </div>
+                <div class="form-group">
+                    <label>Edad:</label>
+                    <input type="text" class="form-control" name="Edad" placeholder="Ingresa tu edad" onkeypress="return soloEnteros(event)" required />
+                </div>
+                <div class="form-group">
+                    <label>Escuela:</label>
+                    <input type="text" class="form-control" name="Escuela" placeholder="Ingresa tu escuela" required />
+                </div>
+                <input type="submit" class="btn btn-primary" name="alta" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>
